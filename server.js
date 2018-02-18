@@ -23,4 +23,10 @@ io.sockets.on('connection', function(socket){
     connections.splice(connections.indexOf(socket), 1);
     console.log('disconnected: %s sockets connected', connections.length);
   });
+
+  // send message
+  socket.on('send message', function(data){
+    console.log(data);
+    io.sockets.emit('new message', {msg: data});
+  });
 });
